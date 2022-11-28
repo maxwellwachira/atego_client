@@ -115,7 +115,8 @@ const Home: NextPage = () => {
                 <Text className={`${classes.headingTwo} ${classes.primaryText}`} mt="xl">Who We are</Text>
               </Center>
               <Text>
-              In hac habitasse platea dictumst. Nunc quis elit in velit viverra vestibulum. Sed id urna et erat venenatis aliquam. Ut aliquet risus in nisi elementum, ac vulputate neque maximus. Ut nisi lorem, scelerisque rhoncus mattis eu, vehicula a mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. In finibus, leo at consequat consectetur, mauris odio malesuada est, eget imperdiet nunc mi eu massa. Proin sit amet nulla leo. Donec vitae blandit odio. Curabitur justo eros, porttitor eu quam a, interdum scelerisque eros. Duis aliquet nibh id nisl sodales, sit amet consectetur est volutpat. Curabitur posuere nunc a efficitur faucibus.
+                Atego school is shaping the future of gaining after sort skills in IoT, embedded systems and hardware design.
+                The not taught in class professional skills is what our goal is as we blend in with what you have already been taught to prepare you for the job market. 
               </Text>
               <Grid my="xl" gutter="xl">
                 <Grid.Col md={4}>
@@ -172,7 +173,8 @@ const Home: NextPage = () => {
             <Text className={`${classes.headingTwo} ${classes.primaryText}`} mt="xl">What We Do</Text>
           </Center>
           <Text my="xl">
-             In hac habitasse platea dictumst. Nunc quis elit in velit viverra vestibulum. Sed id urna et erat venenatis aliquam. Ut aliquet risus in nisi elementum, ac vulputate neque maximus. Ut nisi lorem, scelerisque rhoncus mattis eu, vehicula a mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. In finibus, leo at consequat consectetur, mauris odio malesuada est, eget imperdiet nunc mi eu massa. Proin sit amet nulla leo. Donec vitae blandit odio. Curabitur justo eros, porttitor eu quam a, interdum scelerisque eros.
+          At Atego we focus on filling in the gaps in technical education across the world market. Our key programs are tailored to not only give what is needed in the actual field but also give a practical approach through client-project based problems as we derive the technical solutions in the courses.
+          In our diverse knowledge acquired from the current world needs from previous work and problems solved forms the core basis to give you a front row sit on these solutions and how to handle them professionally
           </Text>
           <Text className={`${classes.primaryText}`} mt="xl" component='h1' size={20}>Electronics & PCB Design</Text>
           <Grid gutter={70}>
@@ -188,7 +190,7 @@ const Home: NextPage = () => {
             </Grid.Col>
             <Grid.Col md={6}>
               <Text mt="sm">
-                 In hac habitasse platea dictumst. Nunc quis elit in velit viverra vestibulum. Sed id urna et erat venenatis aliquam. Ut aliquet risus in nisi elementum, ac vulputate neque maximus. Ut nisi lorem, scelerisque rhoncus mattis eu, vehicula a mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. In finibus, leo at consequat consectetur, mauris odio malesuada est, eget imperdiet nunc mi eu massa. Proin sit amet nulla leo. Donec vitae blandit odio. Curabitur justo eros, porttitor eu quam a, interdum scelerisque eros
+              Learn what each device on a mother board does, you will be able to use your skills to form concepts, design, fabricate and test high quality printed circuit boards for your clients and end users. All smart devices will need a PCB and hence this is a major skill in the world of IoT and smart devices.
              </Text>
              <Button
               component='a'
@@ -203,7 +205,8 @@ const Home: NextPage = () => {
           <Grid gutter={70}>
             <Grid.Col md={6}>
               <Text mt="sm">
-                 In hac habitasse platea dictumst. Nunc quis elit in velit viverra vestibulum. Sed id urna et erat venenatis aliquam. Ut aliquet risus in nisi elementum, ac vulputate neque maximus. Ut nisi lorem, scelerisque rhoncus mattis eu, vehicula a mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. In finibus, leo at consequat consectetur, mauris odio malesuada est, eget imperdiet nunc mi eu massa. Proin sit amet nulla leo. Donec vitae blandit odio. Curabitur justo eros, porttitor eu quam a, interdum scelerisque eros
+              Are you passionate about writing codes but for hardware devices, you love taking to the hardware this course is for you, it takes you from the most basic microcontrollers to most after sort on most smart devices.
+              The course equips you with a cutting edge in demand skill in any IoT firm all over the world and more so unlocks your knowledge on various microcontrollers.
              </Text>
              <Button
               component='a'
@@ -238,7 +241,9 @@ const Home: NextPage = () => {
             </Grid.Col>
             <Grid.Col md={6}>
               <Text mt="sm">
-                 In hac habitasse platea dictumst. Nunc quis elit in velit viverra vestibulum. Sed id urna et erat venenatis aliquam. Ut aliquet risus in nisi elementum, ac vulputate neque maximus. Ut nisi lorem, scelerisque rhoncus mattis eu, vehicula a mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. In finibus, leo at consequat consectetur, mauris odio malesuada est, eget imperdiet nunc mi eu massa. Proin sit amet nulla leo. Donec vitae blandit odio. Curabitur justo eros, porttitor eu quam a, interdum scelerisque eros
+              Is asset tracking, smart farming, automotive, remote sensing, remote data monitoring & smart wearables your interest – this course is tailed for you.
+              IoT is currently the biggest trend in the world of connected devices, this course aims at giving you a deep understanding on all the available communication protocols to connect and communicate among devices. This skill will make you an after-sort engineer in the world on smart devices, wearables, automotive, asset tracking
+
              </Text>
              <Button
               component='a'
