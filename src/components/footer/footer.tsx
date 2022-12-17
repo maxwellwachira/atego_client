@@ -44,8 +44,8 @@ interface FooterLinksProps {
         <div className={classes.logo}>
           <Image 
             src={logo}
-            width={200}
-            height={120}
+            width={150}
+            height={90}
             alt='logo'
           />
           <Text size="xs" color="dimmed" className={classes.description}>
