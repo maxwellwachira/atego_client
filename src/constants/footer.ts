@@ -4,26 +4,26 @@ export const footerData = [
         links: [
             { id: 0, link: '/', label: 'Home' },
             { id: 1, link: '/about', label: 'About' },
-            { id: 2, link: '/find-a-home', label: 'Home Finder' },
-            { id: 3, link: '/faq', label: 'FAQ' }
+            { id: 2, link: '/auth/login', label: 'Login' },
+            { id: 3, link: '/auth/register', label: 'Register' }
         ]
     },
     {
         title: 'Courses', 
         links: [
-            { id: 0, link: '/contact', label: 'all courses' },
-            { id: 1, link: 'mailto:', label: 'PCB Design' },
-            { id: 2, link: 'mailto:', label: 'Firmware' },
-            { id: 2, link: 'mailto:', label: 'IoT' },
+            { id: 0, link: '/courses', label: 'All courses' },
+            { id: 1, link: '/courses/hardware', label: 'PCB Design' },
+            { id: 2, link: '/courses/firmware', label: 'Firmware' },
+            { id: 2, link: '/courses/iot', label: 'IoT' },
         ]
     }, 
     {
         title: 'Contact', 
         links: [
             { id: 0, link: '/contact', label: 'Contact Page' },
-            { id: 1, link: 'mailto:', label: 'Support' },
-            { id: 2, link: 'mailto:', label: 'Info' },
-            { id: 2, link: 'mailto:', label: 'Sales' },
+            { id: 1, link: 'mailto:support@ategoschool.com', label: 'Support' },
+            { id: 2, link: 'mailto:info@ategoschool.com', label: 'Info' },
+            { id: 2, link: 'mailto:scholarship@ategoschool.com', label: 'Scholarship' },
         ]
     }, 
     {
