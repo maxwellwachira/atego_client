@@ -8,13 +8,13 @@ export const useStyles = createStyles((theme) => ({
     },
 
     activeSignIn: {
-        backgroundColor: theme.colors.gray[0],
-        color: `${colors.primaryColor}`,
-        cursor: "default"  
+        backgroundColor: `${colors.primaryColor}`,
+        color: theme.colors.gray[0],
+        cursor: "default"
     },
 
     activeSignUp: {
-        backgroundColor: `${colors.primaryColor}`,
+        backgroundColor: `${colors.secondaryColor}`,
         color: theme.colors.gray[0],
         cursor: "default"
     },
@@ -44,7 +44,6 @@ export const useStyles = createStyles((theme) => ({
     },
 
     headerBackground: {
-        background: theme.colors.gray[0],
         width: "100%",
         display:"flex",
         justifyContent: "center"
@@ -86,11 +85,11 @@ export const useStyles = createStyles((theme) => ({
     },
 
     signin: {
-        backgroundColor: `${colors.primaryColor}`,
+        backgroundColor: "transaparent",
         border: `2px solid ${colors.primaryColor}`,
         borderRadius: "10px",
         padding: "5px 10px",
-        color: theme.colors.gray[0] ,
+        color:  `${colors.primaryColor}`,
          textAlign: "center",   
         [theme.fn.smallerThan("md")]: {
             width: '120px',
@@ -98,29 +97,40 @@ export const useStyles = createStyles((theme) => ({
         },
 
         '&:hover': {
-            backgroundColor: `transparent`,
-            color: `${colors.primaryColor}`,
+            backgroundColor: `${colors.primaryColor}`,
+            color:  theme.colors.gray[0],
             textDecoration: 'none'
         }, 
     },
 
     signup: {
         backgroundColor: "transaparent",
-        border: `2px solid ${colors.primaryColor}`,
+        border: `2px solid ${colors.secondaryColor}`,
         borderRadius: "10px",
         padding: "5px 10px",
-        color:  `${colors.primaryColor}`,
+        color:  `${colors.secondaryColor}`,
         textAlign: "center",
         [theme.fn.smallerThan("md")]: {
           width: '120px',
           margin: '7px 7px'
         },
         '&:hover': {
-            backgroundColor: `${colors.primaryColor}`,
+            backgroundColor: `${colors.secondaryColor}`,
             color:  theme.colors.gray[0],
-            
+            textDecoration: 'none'
         }
     
     },
+
+    whatsapp : {
+        position: 'fixed',
+        top: 'calc(100vh - 105px)',
+        right: 0,
+        marginRight: 30,
+        zIndex: 10,
+        [theme.fn.smallerThan("md")]: {
+            marginRight: 10,
+        }
+    }
 
 }))
