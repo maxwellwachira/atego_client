@@ -16,9 +16,11 @@ import iot from '../assets/iot.jpg';
 import man from '../assets/man.png';
 import FooterLinks from '../components/footer/footer';
 import { footerData } from '../constants/footer';
+import Subscribe from '../components/subscribe/subscribe';
 
 const useStyles = createStyles((theme) => ({
   cardWidth: {
+    boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
     maxWidth: 300
   },
 
@@ -27,7 +29,7 @@ const useStyles = createStyles((theme) => ({
     border: `2px solid ${colors.primaryColor}`,
     borderRadius: "10px",
     display: "inline-block",
-    padding: "5px 12px",
+    padding: "9px 12px",
     textAlign: "center",
     color:  theme.colors.gray[0],
     fontWeight: 'bold',
@@ -121,7 +123,7 @@ const Home: NextPage = () => {
               <Grid my="xl" gutter="xl">
                 <Grid.Col md={4}>
                 <Stack align="center">
-                  <Card shadow="sm" p="lg" radius="lg" withBorder className={classes.cardWidth}>
+                  <Card p="lg" radius="lg" className={classes.cardWidth}>
                         <Card.Section>
                           <Image
                             src="/pcb.svg"
@@ -136,7 +138,7 @@ const Home: NextPage = () => {
                 </Grid.Col>
                 <Grid.Col md={4}>
                   <Stack align="center">
-                    <Card shadow="sm" p="lg" radius="lg" withBorder className={classes.cardWidth} mt={width <= 992 ? 0 : 30}>
+                    <Card p="lg" radius="lg" className={classes.cardWidth} mt={width <= 992 ? 0 : 30}>
                       <Card.Section>
                         <Image
                           src={accelerated}
@@ -151,7 +153,7 @@ const Home: NextPage = () => {
                 </Grid.Col>
                 <Grid.Col md={4}>
                   <Stack align="center">
-                    <Card shadow="sm" p="lg" radius="lg" withBorder className={classes.cardWidth}>
+                    <Card p="lg" radius="lg" className={classes.cardWidth}>
                       <Card.Section>
                         <Image
                           src="/community.svg"
@@ -359,6 +361,7 @@ const Home: NextPage = () => {
             </Carousel>
           </Container>
         </Box>
+        <Subscribe />
         <FooterLinks data={footerData}/>
       </MainLayout>
     </>
