@@ -5,7 +5,7 @@ import { ColorScheme, MantineProvider } from '@mantine/core';
 import '../styles/globals.css';
 import PageLoader from '../components/pageLoader/pageLoader';
 import { AuthContextProvider } from '../features/authentication/context/authContextProvider';
-
+import { RefreshContextProvider } from '../features/lms/contexts/refreshDataContexProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
@@ -25,11 +25,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         withGlobalStyles
         withNormalizeCSS
       >
-
-        {!loading ?
-          (<PageLoader />) :
-          (<Component {...pageProps} />)
-        }
+        <RefreshContextProvider>
+          {!loading ?
+            (<PageLoader />) :
+            (<Component {...pageProps} />)
+          }
+        </RefreshContextProvider>
       </MantineProvider>
     </AuthContextProvider>
   );
