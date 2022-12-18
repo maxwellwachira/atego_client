@@ -4,6 +4,7 @@ const env = process.env.NEXT_PUBLIC_ENV as string;
 
 export const urls = {
     baseUrl:'http://localhost:5000',
+    frontEnd: 'http://localhost:3000',
     tutorLms: 'https://mygrannyslove.com/wp-json/tutor/v1',
     zoomBaseUrl: 'https://api.zoom.us/v2'
 }
