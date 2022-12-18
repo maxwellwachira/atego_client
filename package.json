@@ -22,13 +22,24 @@
     "@types/react-dom": "18.0.9",
     "axios": "^1.2.1",
     "cookies-next": "^2.1.1",
+    "dompurify": "^2.4.1",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
     "embla-carousel-autoplay": "^7.0.5",
     "embla-carousel-react": "^7.0.5",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "html-to-draftjs": "1.4.0",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-draft-wysiwyg": "^1.15.0",
     "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^2.4.0",
+    "@types/draftjs-to-html": "^0.8.1",
+    "@types/html-to-draftjs": "^1.4.0",
+    "@types/react-draft-wysiwyg": "^1.13.4"
   }
 }
