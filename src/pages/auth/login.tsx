@@ -46,21 +46,7 @@ const Login: NextPage = () => {
     const router = useRouter()
     const { form, handleSubmit, clearResponse, response, userMeData, loading } = useLoginUser();
 
-    if (response === "success") {
-        switch (userMeData?.role) {
-          case 'student':
-            router.push('/courses').then(() => router.reload());
-            break;
-          case 'admin':
-            router.push('/admin').then(() => router.reload());
-            break;
-          case 'tutor':
-            router.push('/tutor/uploads').then(() => router.reload());
-            break;
-          default:
-            break;
-        }
-    }
+    
     return (
         <>
         <Head>
