@@ -107,7 +107,13 @@ const MainLayout = ({ children }: Props) => {
                       </Menu.Target>
                       <Menu.Dropdown>
                         <Menu.Label>{userMe.email}</Menu.Label>
-                        <Menu.Item icon={<IconDashboard size={14} />}>Dashboard</Menu.Item>
+                        <Menu.Item
+                          icon={<IconDashboard size={14} />}
+                          component="a"
+                          href={userMe.role === "admin" ? "/admin" : userMe.role === "tutor" ? "/tutors/uploads" : "/students"}
+                        >
+                          Dashboard
+                        </Menu.Item>
                         <Menu.Divider />
                         <Menu.Item
                           color="red"
