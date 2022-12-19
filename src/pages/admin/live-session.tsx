@@ -9,7 +9,7 @@ import { useViewportSize } from '@mantine/hooks';
 import { AdminLayout } from '../../layouts/adminLayout/adminLayout';
 import { colors } from '../../constants/colors';
 import { useAuthContext } from '../../features/authentication';
-import livesession from '../../assets/livesession.jpg'
+import livesession from '../../assets/livesession.jpg';
 
 const LiveSession: NextPage = () => {
     const { auth, userMe } = useAuthContext();
@@ -60,7 +60,7 @@ const LiveSession: NextPage = () => {
                         </Grid.Col>
                         <Grid.Col md={5}>
                             <Stack justify="center" p="xl" style={{minHeight: width > 768 ? 280 : 0}}>    
-                                <Text mt={40}>Click the button to start a live session</Text>
+                                <Text mt={40}>Click the button to join a live session</Text>
                                 <Button
                                     component='a'
                                     href='/meeting/live-session'
@@ -71,7 +71,7 @@ const LiveSession: NextPage = () => {
                                     fullWidth
 
                                 >
-                                    Start Live Session
+                                    Join Live Session
                                 </Button>
                             </Stack>
                         </Grid.Col>
