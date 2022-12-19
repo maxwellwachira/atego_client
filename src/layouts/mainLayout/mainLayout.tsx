@@ -162,8 +162,13 @@ const MainLayout = ({ children }: Props) => {
             <Anchor className={`${classes.navitem} ${router.pathname === "/find-a-home" ? classes.active : ""}`} href="#">Financial Aid</Anchor>
             <Space h="xs" />
             <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : ""}`} href="#">Community</Anchor>
-            <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/login" ? classes.activeSignIn : ""}`} href="/auth/login" >Login</Anchor>
-            <Anchor className={`${classes.navitem} ${classes.signup} ${router.pathname === "/auth/register" ? classes.activeSignUp : ""}`} href="/auth/register">Register</Anchor>
+            {auth ?
+              <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/login" ? classes.activeSignIn : ""}`} href={userMe.role === "admin" ? "/admin" : userMe.role === "tutor" ? "/tutors/uploads" : "/students"}>Dashboard</Anchor> :
+              <div style={{marginTop: 20, marginLeft: 5}}>
+                <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/login" ? classes.activeSignIn : ""}`} href="/auth/login" >Login</Anchor>
+                <Anchor className={`${classes.navitem} ${classes.signup} ${router.pathname === "/auth/register" ? classes.activeSignUp : ""}`} href="/auth/register">Register</Anchor>
+              </div>
+            }
           </div>
         </Drawer>
       </Navbar>}
