@@ -23,7 +23,7 @@ type Props = {
   children: ReactNode;
 }
 
-export function AdminLayout({children}: Props ) {
+export function AdminLayout({ children }: Props) {
   const router = useRouter();
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
@@ -36,22 +36,22 @@ export function AdminLayout({children}: Props ) {
   }
 
   const data = [
-    { 
-      label: 'Main Page', 
-      icon: IconSitemap, 
-      link: '/', 
+    {
+      label: 'Main Page',
+      icon: IconSitemap,
+      link: '/',
       active: router.pathname === '/' ? true : false
     },
-    { 
-      label: 'Dashboard', 
-      icon: IconGauge, 
-      link: '/admin', 
+    {
+      label: 'Dashboard',
+      icon: IconGauge,
+      link: '/admin',
       active: router.pathname === '/admin' ? true : false
     },
     {
       label: 'Courses',
       icon: IconCertificate,
-      index:1,
+      index: 1,
       active: router.pathname === '/admin/courses' ? true : router.pathname === '/admin/categories' ? true : false,
       initiallyOpened: router.pathname === '/admin/courses' ? true : router.pathname === '/admin/categories' ? true : false,
       links: [
@@ -65,10 +65,10 @@ export function AdminLayout({children}: Props ) {
       link: '/admin/students',
       active: router.pathname === '/admin/students' ? true : false,
     },
-    { 
-      label: 'Tutors', 
-      icon: IconSchool, 
-      link: '/admin/tutors', 
+    {
+      label: 'Tutors',
+      icon: IconSchool,
+      link: '/admin/tutors',
       active: router.pathname === '/admin/tutors' ? true : false,
     },
     // { 
@@ -77,10 +77,10 @@ export function AdminLayout({children}: Props ) {
     //   link: '/admin/payments', 
     //   active: router.pathname === '/admin/payments' ? true : false,
     // },
-    { 
-      label: 'Live Session', 
-      icon: IconVideo, 
-      link: '/admin/live-session', 
+    {
+      label: 'Live Session',
+      icon: IconVideo,
+      link: '/admin/live-session',
       active: router.pathname === '/admin/live-session' ? true : false,
     },
     {
@@ -99,20 +99,20 @@ export function AdminLayout({children}: Props ) {
         { label: 'Sent SMS', link: '/admin/sent-sms', active: router.pathname === '/admin/sent-sms' ? true : false, },
       ],
     },
-    { 
-      label: 'Logout', 
-      icon: IconLogout, 
-      link: '/auth/logout',  
+    {
+      label: 'Logout',
+      icon: IconLogout,
+      link: '/auth/logout',
       active: router.pathname === '/admin/logout' ? true : false,
     },
   ];
 
-  const links = data.map((item) => <LinksGroup {...item} key={item.label}/>);
+  const links = data.map((item) => <LinksGroup {...item} key={item.label} />);
 
   return (
-      <AppShell
-        header={
-         <Header height={50} p="md" style={{background: '#14481e'}}>
+    <AppShell
+      header={
+        <Header height={50} p="md" style={{ background: '#14481e' }}>
           <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
             <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
               <Burger
@@ -123,33 +123,29 @@ export function AdminLayout({children}: Props ) {
                 mr="xl"
               />
             </MediaQuery>
-
-    
-                <Text weight={600} size={25} color='white' ml="lg">Atego</Text>
-                
-    
+            <Text weight={600} size={25} color='white' ml="lg">Atego</Text>
           </div>
         </Header>
-        }
-        navbar = {
-          <Navbar height={`cal(100vh - 50px)`} hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }} p="sm" className={classes.navbar} >
-            <Navbar.Section grow className={classes.links} component={ScrollArea}>
-                <div className={classes.linksInner}>{links}</div>
-            </Navbar.Section>
+      }
+      navbar={
+        <Navbar height={`cal(100vh - 50px)`} hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }} p="sm" className={classes.navbar} >
+          <Navbar.Section grow className={classes.links} component={ScrollArea}>
+            <div className={classes.linksInner}>{links}</div>
+          </Navbar.Section>
 
-            <Navbar.Section className={classes.footer}>
-                <UserButton
-                  initials={getInitials(`${userMe.firstName} ${userMe.lastName}`)}
-                  name={`${userMe.firstName} ${userMe.lastName}`}
-                  email={`${userMe.email}`}
-                />
-            </Navbar.Section>   
+          <Navbar.Section className={classes.footer}>
+            <UserButton
+              initials={getInitials(`${userMe.firstName} ${userMe.lastName}`)}
+              name={`${userMe.firstName} ${userMe.lastName}`}
+              email={`${userMe.email}`}
+            />
+          </Navbar.Section>
         </Navbar>
-        }
-      >
-        {children}
-      </AppShell>
-    
+      }
+    >
+      {children}
+    </AppShell>
+
   );
 }
 
