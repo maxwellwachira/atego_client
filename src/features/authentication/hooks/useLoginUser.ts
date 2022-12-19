@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "@mantine/form";
 import axios from "axios";
 import { setCookie } from "cookies-next";
+import { useRouter } from "next/router";
 
 import { urls } from "../../../constants/urls";
 
@@ -13,6 +14,7 @@ export const useLoginUser = () => {
         firstName: '',
         lastName:''
     });
+    const router = useRouter();
 
     const initialValues =  {
         email: '',
@@ -49,8 +51,25 @@ export const useLoginUser = () => {
                     setCookie('refreshToken', data.refreshToken);
                     userMe(data.accessToken);
                     setLoading(false);
-                    console.log(userMeData)
+                    //console.log(userMeData)
 
+                }
+                if (data.message === "success") {
+                    const userMeData = await userMe(data.accessToken);
+                    console.log(userMeData);
+                    switch (userMeData?.role) {
+                      case 'student':
+                        router.push('/courses').then(() => router.reload());
+                        break;
+                      case 'admin':
+                        router.push('/admin').then(() => router.reload());
+                        break;
+                      case 'tutor':
+                        router.push('/tutor/uploads').then(() => router.reload());
+                        break;
+                      default:
+                        break;
+                    }
                 }
             } catch (error: any) {
                 console.log(error);
