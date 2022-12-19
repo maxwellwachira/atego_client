@@ -103,7 +103,7 @@ const Home: NextPage = () => {
                 <Image 
                   src={hero}
                   height={width >= 768 ? 430 : 350}
-                  width={width >= 768 ? 430 : 310}
+                  width={width >= 768 ? 430 : 300}
                   alt="Hero image"
                 />
               </Center>
@@ -179,13 +179,13 @@ const Home: NextPage = () => {
           In our diverse knowledge acquired from the current world needs from previous work and problems solved forms the core basis to give you a front row sit on these solutions and how to handle them professionally
           </Text>
           <Text className={`${classes.primaryText}`} mt="xl" component='h1' size={20}>Electronics & PCB Design</Text>
-          <Grid gutter={70}>
+          <Grid gutter={width > 768 ? 70 : 10}>
             <Grid.Col md={6}>
               <Center>
                 <Image 
                   src={design}
-                  height={350}
-                  width={400}
+                  height={width > 768 ? 350 : 300}
+                  width={width > 768 ? 400 : 300}
                   alt="Hardware"
                 />
               </Center>
@@ -204,7 +204,7 @@ const Home: NextPage = () => {
             </Grid.Col>
           </Grid>
           <Text className={`${classes.primaryText}`} mt="xl" component='h1' size={20}>Firmware Development</Text>
-          <Grid gutter={70}>
+          <Grid gutter={width > 768 ? 70 : 10}>
             <Grid.Col md={6}>
               <Text mt="sm">
               Are you passionate about writing codes but for hardware devices, you love taking to the hardware this course is for you, it takes you from the most basic microcontrollers to most after sort on most smart devices.
@@ -222,21 +222,21 @@ const Home: NextPage = () => {
               <Center>
                 <Image 
                   src="/firmware.svg"
-                  height={350}
-                  width={400}
+                  height={width > 768 ? 350 : 300}
+                  width={width > 768 ? 400 : 300}
                   alt="Firmware"
                 />
               </Center>
             </Grid.Col>
           </Grid>
           <Text className={`${classes.primaryText}`} mt="xl" component='h1' size={20}>Internet of Things</Text>
-          <Grid gutter={70}>
+          <Grid gutter={width > 768 ? 70 : 10}>
             <Grid.Col md={6}>
               <Center>
                 <Image 
                   src={iot}
-                  height={350}
-                  width={400}
+                  height={width > 768 ? 350 : 300}
+                  width={width > 768 ? 400 : 300}
                   alt="IoT"
                 />
               </Center>

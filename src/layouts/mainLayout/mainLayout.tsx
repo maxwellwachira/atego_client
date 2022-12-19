@@ -54,8 +54,8 @@ const MainLayout = ({ children }: Props) => {
               <Anchor href="/" ml="xl">
                 <Image
                   src={logo}
-                  width={150}
-                  height={100}
+                  width={110}
+                  height={70}
                   alt='logo'
 
                 />
