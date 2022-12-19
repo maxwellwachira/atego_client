@@ -122,6 +122,13 @@ export const useStyles = createStyles((theme) => ({
     
     },
 
+    userIcon: {
+        position: 'absolute',
+        top: 35,
+        marginLeft: 30
+
+    },
+
     whatsapp : {
         position: 'fixed',
         top: 'calc(100vh - 105px)',
