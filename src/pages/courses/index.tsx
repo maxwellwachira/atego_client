@@ -17,10 +17,10 @@ const useStyles = createStyles((theme) => ({
         height: 165
     },
     button: {
-        background: `${colors.primaryColor}`,
-        color: theme.colors.gray[0],
+        background: `${colors.primaryLight}`,
+        color: theme.colors.dark[9],
         '&:hover': {
-            background: `${colors.primaryColor}`,
+            background: `${colors.primaryLight}`,
             opacity: 0.7
         }
     },
@@ -92,7 +92,7 @@ const Courses: NextPage = () => {
                         <Button 
                             variant="light" 
                             fullWidth  
-                            radius="md" 
+                            radius={15}
                             className={classes.button}
                             component='a'
                             href={`/courses/${element.id}`}
@@ -127,8 +127,8 @@ const Courses: NextPage = () => {
            ): (
             <Box>
                 <Group mb="xl" position="apart">
-                    <Badge variant="filled">{courses} Total Courses</Badge>
-                    <Pagination page={activePage} onChange={setPage} total={totalPages} />
+                    <Badge color='dark' variant='outline'>{courses} Total Courses</Badge>
+                    <Pagination page={activePage} onChange={setPage} total={totalPages} color='green'/>
                 </Group>
                 <Grid>
                     {item}
@@ -136,10 +136,10 @@ const Courses: NextPage = () => {
             </Box>
            )}
            <Center mt="md">
-            <Pagination page={activePage} onChange={setPage} total={totalPages} />
+            <Pagination page={activePage} onChange={setPage} total={totalPages} color='green' mb="xl" />
            </Center>    
         </Container>
-        <Subscribe />
+        {/* <Subscribe /> */}
         <Box>
             <FooterLinks data={footerData} />
         </Box>
