@@ -21,8 +21,8 @@ const About: NextPage = () => {
             <MainLayout>
                 <Container>
                     <Text align="center" size={28} weight={600} color={`${colors.primaryColor}`} mb="lg">About Atego</Text>
-                    <Text>At Atego, we are reimagining STEM education and training to ensure every student is equipped with the technical skills necessary for the future of work.</Text>
-                    <Text>we offer learning pathways and programs for individuals at every stage of their STEM journey, including: young students and educators, community college and university students and faculty, and members of the workforce.</Text>
+                    At Atego, we are reimagining STEM education and training to ensure every student has the technical skills necessary for future personal development in the workplace. We offer to learn pathways and programs for individuals at every stage of their STEM journey; young students, educators, university students, members of the workforce to the general public at large.
+                    Explore Learn Innovate
                     <Text size={20} weight={5500} color={`${colors.primaryColor}`}>Explore Learn Innovate</Text>
 
                     <Text size={28} weight={600} color={`${colors.primaryColor}`} mt={40}>Our Vision</Text>
@@ -39,7 +39,7 @@ const About: NextPage = () => {
                         </Grid.Col>
                         <Grid.Col md={6} mt={20}>
                             <Text>
-                                Our vision is one that strives to connect our African people to the future they envision for themselves.  This is the goal in-front of us and it keeps us striving for more. Simply put…we will know we are succeeding when people working in tech in Africa have the same earning potential as their global counterparts possessing the same aptitude and mindset.
+                            Our vision strives to connect our African people to the future they envision for themselves. Our vision will be realized when people working in tech in Africa have the same earning potential as their global counterparts possessing the same aptitude and mindset.
                             </Text>
                         </Grid.Col>
                     </Grid>
@@ -57,7 +57,7 @@ const About: NextPage = () => {
                         </Grid.Col>
                         <Grid.Col md={6} mt={20}>
                             <Text mt={20}>
-                                Atego School is a multi-disciplinary learning-accelerator committed to closing the skills-gap in Africa's Computer Programming while delivering transformative tech-based learning to high-potential Tech-preneurs and jobseekers
+                            Atego School is a multi-disciplinary learning accelerator school committed to closing the skills gap in Africa's Hardware and IoT space.  We aim to deliver transformative tech-based learning to high-potential techpreneurs and job seekers.
                             </Text>
                         </Grid.Col>
                     </Grid>
