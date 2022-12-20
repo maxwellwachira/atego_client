@@ -396,10 +396,10 @@ const SingleCourse: NextPage = (props: any) => {
                                         <>
                                             <Group mt="lg">
                                                 <Text size="lg">Price:</Text>
-                                                <Badge color="dark" variant='filled' size='lg'>{props.courseContent[0].coursePricing == 0 ? 'FREE' : `${props.courseContent[0].coursePricing} KES`}</Badge>
+                                                <Badge color="green" variant='outline' size='lg'>{props.courseContent[0].coursePricing == 0 ? 'FREE' : `${props.courseContent[0].coursePricing} KES`}</Badge>
                                             </Group>
                                             <Text my="sm">Don't be left out, enrol today</Text>
-                                            <Text my="sm" weight={600} size={20}>Hardware is hard, but not with Atego</Text>
+                                            <Text my="sm" weight={600} color={colors.primaryColor}>Hardware is hard, but not with Atego</Text>
                                             <Button
                                                 fullWidth
                                                 my="lg"
@@ -421,7 +421,7 @@ const SingleCourse: NextPage = (props: any) => {
                     onClose={onClose}
                     size={500}
                     title={
-                        <Text weight={600} color={`${colors.secondaryColor}`} size={28}>Mpesa number to pay</Text>
+                        <Text weight={600} color={`${colors.primaryColor}`} size={28}>Mpesa number to pay</Text>
                     }
                 >
                     <Divider mb="xl" />

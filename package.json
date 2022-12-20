@@ -13,6 +13,7 @@
     "@emotion/server": "^11.10.0",
     "@mantine/carousel": "^5.8.0",
     "@mantine/core": "^5.7.2",
+    "@mantine/dropzone": "^5.9.5",
     "@mantine/form": "^5.9.4",
     "@mantine/hooks": "^5.7.2",
     "@mantine/next": "^5.7.2",
