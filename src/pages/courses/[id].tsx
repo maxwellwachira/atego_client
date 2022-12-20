@@ -184,7 +184,7 @@ const SingleCourse: NextPage = (props: any) => {
 
     const onClick = async () => {
         //check if user is authenticated
-        if (!auth) return router.push('/auth/sign-in');
+        if (!auth) return router.push('/auth/login');
         //Check if role is admin or tutor or course pricing is free
         if (userMe.role === "admin" || userMe.role === "tutor" || Number(props.courseContent[0].coursePricing) === 0) {
             const enrolment = await enroll(userMe.id, props.courseContent[0].id);
@@ -280,8 +280,8 @@ const SingleCourse: NextPage = (props: any) => {
     return (
         <>
             <Head>
-                <title>Luddoc | {props?.courseContent[0].courseTitle}</title>
-                <meta name="description" content="Contact us Page" />
+                <title>Atego | {props?.courseContent[0].courseTitle}</title>
+                <meta name="description" content="Course Page" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <MainLayout>
@@ -291,7 +291,7 @@ const SingleCourse: NextPage = (props: any) => {
                             <Button
                                 component='a'
                                 href='/courses'
-                                size='sm'
+                                size='xs'
                                 mb="lg"
                                 color="dark"
                                 variant='outline'
@@ -399,7 +399,7 @@ const SingleCourse: NextPage = (props: any) => {
                                                 <Badge color="dark" variant='filled' size='lg'>{props.courseContent[0].coursePricing == 0 ? 'FREE' : `${props.courseContent[0].coursePricing} KES`}</Badge>
                                             </Group>
                                             <Text my="sm">Don't be left out, enrol today</Text>
-                                            <Text my="sm" weight={600} size={20}>Jijenge, Jiamini, Jienjoy</Text>
+                                            <Text my="sm" weight={600} size={20}>Hardware is hard, but not with Atego</Text>
                                             <Button
                                                 fullWidth
                                                 my="lg"
