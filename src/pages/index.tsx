@@ -92,7 +92,7 @@ const Home: NextPage = () => {
               </Stack>
               <Button
                 component='a'
-                href='/COURSES'
+                href='/courses'
                 className={classes.exploreButton}
               >
                 See Available Courses
