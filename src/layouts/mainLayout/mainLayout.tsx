@@ -71,7 +71,7 @@ const MainLayout = ({ children }: Props) => {
           </MediaQuery>
           <div className={classes.header}>
             <div className={classes.logo}>
-              <Anchor href="/" className={classes.navitem}>
+              <Anchor href="/">
                 <Image
                   src={logo}
                   width={150}

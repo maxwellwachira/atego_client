@@ -38,9 +38,13 @@ export const useStyles = createStyles((theme) => ({
         alignItems: "center",
         height: 105,
         maxWidth: "1600px",
-        [theme.fn.largerThan("lg")]: {
-           minWidth: 1280
-         },
+       
+        [theme.fn.largerThan("md")]: {
+           
+                width: "100%",
+                maxWidth: "1440px",
+            
+        },
     },
 
     headerBackground: {
@@ -50,7 +54,7 @@ export const useStyles = createStyles((theme) => ({
     },
 
     links: {
-        margin: "0 45px",
+        margin: "0 200px",
         display: "flex",
         [theme.fn.smallerThan("md")]: {
             display: "none"
@@ -58,6 +62,7 @@ export const useStyles = createStyles((theme) => ({
     },
 
     logo: {
+        marginLeft: 20,
         [theme.fn.smallerThan("md")]: {
             display: "none"
         }
@@ -125,8 +130,13 @@ export const useStyles = createStyles((theme) => ({
     userIcon: {
         position: 'absolute',
         top: 35,
-        marginLeft: 30
+        marginLeft: 30,
 
+    },
+
+    userIconContent: {
+        display: 'flex',
+        flexDirection: 'row'
     },
 
     whatsapp : {
