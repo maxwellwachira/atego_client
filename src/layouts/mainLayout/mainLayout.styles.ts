@@ -54,7 +54,6 @@ export const useStyles = createStyles((theme) => ({
     },
 
     links: {
-        margin: "0 200px",
         display: "flex",
         [theme.fn.smallerThan("md")]: {
             display: "none"

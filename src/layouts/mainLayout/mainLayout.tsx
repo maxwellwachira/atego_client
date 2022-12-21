@@ -81,7 +81,7 @@ const MainLayout = ({ children }: Props) => {
 
               </Anchor>
             </div>
-            <div className={classes.links}>
+            <div className={classes.links} style={{margin : auth ? "0 200px" : "0 45px"}}>
               <Anchor className={`${classes.navitem} ${router.pathname === "/courses" ? classes.active : ""}`} href="/courses">Courses</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/about" ? classes.active : ""}`} href="/about">About</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/find-a-home" ? classes.active : ""}`} href="https://forms.gle/MZ2BhLS2WMySZYFP7" target="_blank">Financial Aid</Anchor>
