@@ -14,7 +14,7 @@ interface FooterLinksProps {
   }[];
 }
 
- function FooterLinks({ data }: FooterLinksProps) {
+function FooterLinks({ data }: FooterLinksProps) {
   const { classes } = useStyles();
 
   const groups = data.map((group) => {
@@ -24,7 +24,7 @@ interface FooterLinksProps {
         className={classes.link}
         component="a"
         href={link.link}
-        onClick={(event) => event.preventDefault()}
+        target='_blank'
       >
         {link.label}
       </Text>
@@ -42,7 +42,7 @@ interface FooterLinksProps {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Image 
+          <Image
             src={logo}
             width={150}
             height={90}
@@ -60,14 +60,29 @@ interface FooterLinksProps {
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
-            <IconBrandTwitter size={18} stroke={1.5} color={`${colors.primaryColor}`}/>
+          <ActionIcon
+            size="lg"
+            component='a'
+            href='https://twitter.com/_beyondgrades'
+            target='_blank'
+          >
+            <IconBrandTwitter size={18} stroke={1.5} color={`${colors.primaryColor}`} />
           </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandYoutube size={18} stroke={1.5} color={`${colors.primaryColor}`}/>
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandInstagram size={18} stroke={1.5} color={`${colors.primaryColor}`}/>
+          <ActionIcon
+            size="lg"
+            component='a'
+            href='https://www.youtube.com/channel/UCvvziPuo8Jx67q9sNVX9dhA/videos'
+            target='_blank'
+          >
+            <IconBrandYoutube size={18} stroke={1.5} color={`${colors.primaryColor}`} />
+          </ActionIcon>ssss
+          <ActionIcon
+            size="lg"
+            component='a'
+            href='https://www.instagram.com/ategoschool/'
+            target='_blank'
+          >
+            <IconBrandInstagram size={18} stroke={1.5} color={`${colors.primaryColor}`} />
           </ActionIcon>
         </Group>
       </Container>

@@ -29,10 +29,10 @@ export const footerData = [
     {
         title: 'Social Links',
         links: [
-            { id: 0, link: '', label: 'Twitter' },
-            { id: 1, link: '', label: 'LinkedIn' },
-            { id: 2, link: '', label: 'Instagram' },
-            { id: 3, link: '', label: 'Facebook' }
+            { id: 0, link: 'https://twitter.com/_beyondgrades', label: 'Twitter' },
+            { id: 1, link: 'https://www.linkedin.com/company/beyond-grades-academy/', label: 'LinkedIn' },
+            { id: 2, link: 'https://www.instagram.com/ategoschool/', label: 'Instagram' },
+            { id: 3, link: 'https://www.youtube.com/channel/UCvvziPuo8Jx67q9sNVX9dhA/videos', label: 'YouTube' }
         ]
     },
 ];
