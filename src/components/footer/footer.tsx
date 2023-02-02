@@ -75,7 +75,7 @@ function FooterLinks({ data }: FooterLinksProps) {
             target='_blank'
           >
             <IconBrandYoutube size={18} stroke={1.5} color={`${colors.primaryColor}`} />
-          </ActionIcon>ssss
+          </ActionIcon>
           <ActionIcon
             size="lg"
             component='a'
