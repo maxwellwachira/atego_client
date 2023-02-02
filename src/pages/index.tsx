@@ -79,7 +79,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Atego</title>
-        <meta name="description" content="RentLord" />
+        <meta name="description" content="Join the future of technology with our online IoT and Hardware Academy. Learn from experts and gain hands-on experience with the latest hardware and software technologies. Enroll now and take your career to the next level! Best IoT school in 2023" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
@@ -99,8 +99,8 @@ const Home: NextPage = () => {
               </Grid.Col>
               <Grid.Col md={6}>
                 <Stack>
-                  <Text>Hardware and IOT is a lucrative and evolving industry and the demand for skilled professionals in this field is very high. Moreover, the field of electronics is constantly evolving, providing opportunities for professionals to stay current and take on new challenges.</Text>
-                  <Text>Atego school programs are aimed to equip you with these skills and build open new career opportunities for our graduates. As well as build designers community and capacity across the continent and the world  .Enroll today</Text>
+                  <Text>The hardware and IoT industries are lucrative and rapidly growing, creating a high demand for knowledgeable professionals. The field of electronics is constantly advancing, providing opportunities for individuals to stay current and tackle new challenges</Text>
+                  <Text>Our programs at Atego aim to provide you with the necessary skills and open doors for new career prospects. We also strive to establish a strong community of designers and enhance capacities across the globe. Don't miss this opportunity, enroll now.</Text>
                 </Stack>
                 <Button
                   component='a'
@@ -117,8 +117,8 @@ const Home: NextPage = () => {
               <Grid.Col md={6}>
                 <Stack>
                   <Text className={`${classes.heading} ${classes.primaryText}`}>BUILDING HARDWARE & IOT PROFESSIONALS</Text>
-                  <Text>Hardware and IOT is a lucrative and evolving industry and the demand for skilled professionals in this field is very high. Moreover, the field of electronics is constantly evolving, providing opportunities for professionals to stay current and take on new challenges.</Text>
-                  <Text>Atego school programs are aimed to equip you with these skills and build open new career opportunities for our graduates. As well as build designers community and capacity across the continent and the world  .Enroll today</Text>
+                  <Text>The hardware and IoT industries are lucrative and rapidly growing, creating a high demand for knowledgeable professionals. The field of electronics is constantly advancing, providing opportunities for individuals to stay current and tackle new challenges</Text>
+                  <Text>Our programs at Atego aim to provide you with the necessary skills and open doors for new career prospects. We also strive to establish a strong community of designers and enhance capacities across the globe. Don't miss this opportunity, enroll now.</Text>
                 </Stack>
                 <Button
                   component='a'
