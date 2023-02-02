@@ -168,7 +168,7 @@ const Uploads: NextPage = () => {
         }
     }, [activePage, refreshData, userMe]);
 
-    if (!auth) return <></>
+    if (!auth || userMe.role !== "admin") return <></>
 
     return (
         <>

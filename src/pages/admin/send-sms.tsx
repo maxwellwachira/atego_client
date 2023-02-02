@@ -44,7 +44,7 @@ const Tutors: NextPage = () => {
         }
     }, [userMe]);
 
-    if (!auth) return <></>
+    if (!auth || userMe.role !== "admin") return <></>
     
     return (
         <>
