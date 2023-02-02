@@ -78,12 +78,15 @@ const Tutors: NextPage = () => {
     }
 
     useEffect(() => {
-        // if(!auth || userMe.role !== "admin") router.push('/auth/logout');
-        getAllTutors();
-    }, [activePage, refreshData]);
+        if(!auth) router.push('/auth/logout');
+        if(userMe.role){
+            if(userMe.role !== "admin") router.push('/403');
+            getAllTutors();
+        }
+    }, [activePage, refreshData, userMe]);
 
-    // if (!auth || userMe.role !== "admin") return <></>
- 
+    if (!auth) return <></>
+
     return (
         <>
             <Head>

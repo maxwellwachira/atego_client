@@ -52,10 +52,13 @@ const Payments: NextPage = () => {
     const { auth, userMe } = useAuthContext();
 
     useEffect(() =>{
-        if(!auth || userMe.role !== "admin") router.push('/auth/logout');
-    }, []);
+        if(!auth) router.push('/auth/logout');
+        if(userMe.role){
+            if(userMe.role !== "admin") router.push('/403');
+        }
+    }, [userMe]);
 
-    if (!auth || userMe.role !== "admin") return <></>
+    if (!auth) return <></>
  
     return (
         <>

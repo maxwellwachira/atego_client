@@ -101,13 +101,16 @@ const Tutors: NextPage = () => {
     }
 
     useEffect(() => {
-        // if(!auth || userMe.role !== "admin") router.push('/auth/logout');
-        getAllCategories();
-        getAllCourses();
+        if(!auth) router.push('/auth/logout');
+        if(userMe.role){
+            if(userMe.role !== "admin") router.push('/403');
+            getAllCategories();
+            getAllCourses();
+        }
        
-    }, [activePage, refreshData]);
+    }, [activePage, refreshData, userMe]);
 
-    // if (!auth || userMe.role !== "admin") return <></>
+    if (!auth) return <></>
 
     return (
         <>

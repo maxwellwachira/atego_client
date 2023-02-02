@@ -79,11 +79,14 @@ const Students: NextPage = () => {
     }
 
     useEffect(() => {
-        // if(!auth || userMe.role !== "admin") router.push('/auth/logout');
-        getAllStudents();
-    }, [activePage, refreshData]);
+        if(!auth) router.push('/auth/logout');
+        if(userMe.role){
+            if(userMe.role !== "admin") router.push('/403');
+            getAllStudents();
+        }
+    }, [activePage, refreshData, userMe]);
 
-    // if (!auth || userMe.role !== "admin") return <></>
+    if (!auth) return <></>
  
     return (
         <>
