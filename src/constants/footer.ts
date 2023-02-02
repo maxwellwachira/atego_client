@@ -12,9 +12,9 @@ export const footerData = [
         title: 'Courses', 
         links: [
             { id: 0, link: '/courses', label: 'All courses' },
-            { id: 1, link: '/courses/hardware', label: 'PCB Design' },
-            { id: 2, link: '/courses/firmware', label: 'Firmware' },
-            { id: 2, link: '/courses/iot', label: 'IoT' },
+            { id: 1, link: '/courses/2', label: 'PCB Design' },
+            { id: 2, link: '/courses/5', label: 'Firmware' },
+            { id: 2, link: '/courses/6', label: 'IoT' },
         ]
     }, 
     {
