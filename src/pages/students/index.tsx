@@ -55,11 +55,11 @@ const StudentDashboard: NextPage = () => {
     }
 
     useEffect(() => {
-        // if (!auth) router.push('/auth/logout');
+        if (!auth) router.push('/auth/logout');
         getEnrolments();
     }, [])
 
-    // if (!auth) return <></>
+    if (!auth) return <></>
 
     return (
         <>

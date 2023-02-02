@@ -80,11 +80,11 @@ const Uploads: NextPage = () => {
     }
 
     useEffect(() => {
-        // if (!auth) router.push('/auth/logout');
+        if (!auth) router.push('/auth/logout');
         getAllUploads();
     }, [activePage, refreshData]);
 
-    // if (!auth) return <></>
+    if (!auth) return <></>
 
     return (
         <>

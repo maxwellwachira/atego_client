@@ -29,10 +29,10 @@ const LiveSession: NextPage = () => {
     }
 
     useEffect(() => {
-        // if (!auth) router.push('/auth/logout');
+        if (!auth) router.push('/auth/logout');
     }, [])
 
-    // if (!auth) return <></>
+    if (!auth) return <></>
 
     return (
         <>

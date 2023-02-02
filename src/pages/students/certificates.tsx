@@ -14,10 +14,10 @@ const Certificates: NextPage = () => {
     const router = useRouter();
     
     useEffect(() => {
-        // if (!auth) router.push('/auth/logout');
+        if (!auth) router.push('/auth/logout');
     }, [])
 
-    // if (!auth) return <></>
+    if (!auth) return <></>
 
     return (
         <>
