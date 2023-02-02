@@ -35,7 +35,7 @@ const LiveSession: NextPage = () => {
         }
     }, [userMe]);
 
-    if (!auth) return <></>
+    if (!auth || userMe.role !== "tutor") return <></>
 
     return (
         <>
