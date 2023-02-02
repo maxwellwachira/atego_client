@@ -29,10 +29,13 @@ const LiveSession: NextPage = () => {
     }
 
     useEffect(() =>{
-        // if(!auth || userMe.role !== "tutor") router.push('/auth/logout');
-    }, []);
+        if(!auth) router.push('/auth/logout');
+        if(userMe.role){
+            if(userMe.role !== "tutor") router.push('/403');
+        }
+    }, [userMe]);
 
-    // if (!auth || userMe.role !== "tutor") return <></>
+    if (!auth) return <></>
 
     return (
         <>
