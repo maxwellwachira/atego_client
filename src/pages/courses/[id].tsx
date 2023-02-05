@@ -17,6 +17,7 @@ import { urls } from '../../constants/urls';
 import { IconArrowLeft, IconBook, IconCheck, IconClipboard, IconCurrencyDollar, IconPlus, IconX } from '@tabler/icons';
 import { useAuthContext } from '../../features/authentication';
 import LipaNaMpesa from '../../assets/lipanampesa.png';
+import { useViewportSize } from '@mantine/hooks';
 
 interface TopicData {
     totalTopics: number;
@@ -93,44 +94,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const SingleCourse: NextPage = (props: any) => {
     const { auth, userMe } = useAuthContext();
     const [response, setResponse] = useState('');
-    const [paymentStatus, setPaymentStatus] = useState('');
     const [enrolled, setEnrolled] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false);
     const [topicData, setTopicData] = useState<TopicData | null>(null);
     const router = useRouter();
     const pathNameArr = router.asPath.split('/');
     const courseId = pathNameArr[pathNameArr.length - 1];
+    const { width } = useViewportSize();
 
-    const form = useForm({
-        initialValues: {
-            phoneNumber: ''
-        },
-        validate: {
-            phoneNumber: (val) => {
-                const length = val.length;
-                const numArr = val.split('');
-                if (length === 10) {
-                    if (Number(numArr[0]) === 0 && (Number(numArr[1]) === 7 || Number(numArr[1]) === 1)) return null;
-                    return 'Enter a valid Safaricom Number';
-                }
-                if (length === 12) {
-                    if (
-                        Number(numArr[0]) === 2 &&
-                        Number(numArr[1]) === 5 &&
-                        Number(numArr[2]) === 4 &&
-                        (Number(numArr[3]) === 7 || Number(numArr[3]) === 1)
-                    ) return null;
-                    return 'Enter a valid Safaricom Number';
-                }
-                return 'Enter a valid Safaricom Number';
-            }
-        }
-    });
-
-    const onClose = () => {
-        setOpen(false);
-    }
 
     const embedUrl = (url: string) => {
         const splitUrl = url.split("=");
@@ -183,76 +154,33 @@ const SingleCourse: NextPage = (props: any) => {
     }
 
     const onClick = async () => {
-        //check if user is authenticated
-        if (!auth) return router.push('/auth/login');
+        if(!auth) router.push('/auth/login').then(() => router.reload());
         //Check if role is admin or tutor or course pricing is free
-        if (userMe.role === "admin" || userMe.role === "tutor" || Number(props.courseContent[0].coursePricing) === 0) {
+        setLoading(true);
+        if (userMe.role === "admin" || userMe.role === "tutor") {
             const enrolment = await enroll(userMe.id, props.courseContent[0].id);
             if (enrolment?.message === "success") {
-                setOpen(false);
-                setPaymentStatus("success");
-                setTimeout(() => {
-                    router.push("/students/courses");
-                }, 5000)
+                router.push("/students/courses");
             }
         } else {
-            setOpen(true);
-        }
-    }
-
-    const handleSubmit = async () => {
-        setLoading(true);
-        try {
-            const darajaData = {
-                amount: Number(props.courseContent[0].coursePricing),
-                phoneNumber: form.values.phoneNumber.length === 10 ? `254${form.values.phoneNumber.slice(1)}` : form.values.phoneNumber,
-                accountNumber: `Payment for ${props.courseContent[0].courseTitle}`
-            };
-            const { data } = await axios.post(`${urls.baseUrl}/daraja/lipa-na-mpesa`, darajaData);
-            if (data.transaction.ResponseCode == 0) {
-                setCookie('checkoutRequestID', data.transaction.CheckoutRequestID);
-
-                const paymentEvent = new EventSource(`${urls.baseUrl}/daraja/payment-event`);
-                paymentEvent.addEventListener('open', () => {
-                    console.log('SSE opened!');
-                });
-
-                paymentEvent.addEventListener('message', async (e) => {
-                    //console.log(e.data);
-                    const data = JSON.parse(e.data);
-                    console.log(data)
-                    if (data === "success") {
-                        paymentEvent.close();
-                        const query = await axios.post(`${urls.baseUrl}/daraja/lipa-na-mpesa-query`, { checkoutRequestID: getCookie('checkoutRequestID') });
-
-                        if (Number(query.data.transaction.ResultCode) === 0) {
-                            const enrolment = await enroll(userMe.id, props.courseContent[0].id);
-                            if (enrolment?.message === "success") {
-                                setLoading(false);
-                                setOpen(false);
-                                deleteCookie("checkoutRequestID");
-                                setPaymentStatus("success");
-                                setTimeout(() => {
-                                    router.push("/students/courses");
-                                }, 5000);
-                            }
-                        }
-                    } else if (data === "failed") {
-                        setOpen(false);
-                        setLoading(false);
-                        paymentEvent.close();
-                        setPaymentStatus("failed");
-                    }
-
-                });
-
-                paymentEvent.addEventListener('error', (e) => {
-                    console.error('Error: ', e);
-                });
-
+            try {
+                const pesapalData = {
+                    amount: Number(props.courseContent[0].coursePricing),
+                    email: userMe.email,
+                    firstName: userMe.firstName,
+                    lastName: userMe.lastName
+                };
+                const { data } = await axios.post(`${urls.baseUrl}/pesapal/iframe`, pesapalData);
+                if (Number(data.status) === 200) {
+                    setCookie('order_tracking_id', data.order_tracking_id);
+                    setCookie('course_id', props.courseContent[0].id);
+                    router.push(data.redirect_url);
+                    setLoading(false);
+                }
+            } catch (error) {
+                console.log(error);
+                setLoading(false);
             }
-        } catch (error) {
-            console.log(error)
         }
     }
 
@@ -301,22 +229,6 @@ const SingleCourse: NextPage = (props: any) => {
                                 Go Back
                             </Button>
                         </Grid.Col>
-                        <Grid.Col md={6}>
-
-                            {
-                                paymentStatus === "failed" ?
-                                    <Notification icon={<IconX size={18} />} color="red" title="Payment Error">
-                                        Payment not successful. Refresh the page to try again
-                                    </Notification>
-                                    :
-                                    paymentStatus === "success" ?
-                                        <Notification icon={<IconCheck size={18} />} color="teal" title="Payment Successful">
-                                            We have received your payment. Redirecting you to dashboard
-                                        </Notification>
-                                        : ""
-                            }
-
-                        </Grid.Col>
                     </Grid>
                     <Grid gutter="xl">
                         <Grid.Col md={8}>
@@ -335,14 +247,14 @@ const SingleCourse: NextPage = (props: any) => {
                                     (
                                         <Image
                                             src={`${urls.baseUrl}/image?filePath=public${props?.courseContent[0]?.courseThumbnailUrl}`}
-                                            width={600}
-                                            height={400}
+                                            width={width > 768 ? 600 : 310}
+                                            height={width > 768 ? 400 : 310}
                                             alt="course thumbnail"
                                         />
                                     )
                                 }
                             </Center>
-                            <Tabs color="dark" defaultValue="courseInfo" mt="xl" mb="lg">
+                            <Tabs color="dark" defaultValue="courseInfo" mt="xl" mb="md">
                                 <Tabs.List>
                                     <Tabs.Tab value="courseInfo" icon={<IconBook size={14} />}>Course Info</Tabs.Tab>
                                     <Tabs.Tab value="curriculum" icon={<IconClipboard size={14} />}>Curriculum</Tabs.Tab>
@@ -377,7 +289,7 @@ const SingleCourse: NextPage = (props: any) => {
                             </Tabs>
 
                         </Grid.Col>
-                        <Grid.Col md={4}>
+                        <Grid.Col md={4} mb="xl">
                             <Card withBorder mt={60} radius="lg" p={25}>
 
                                 {
@@ -407,6 +319,7 @@ const SingleCourse: NextPage = (props: any) => {
                                                 variant='outline'
                                                 radius="xl"
                                                 onClick={onClick}
+                                                loading={loading}
                                             >
                                                 Enroll Course
                                             </Button>
@@ -416,54 +329,6 @@ const SingleCourse: NextPage = (props: any) => {
                         </Grid.Col>
                     </Grid>
                 </Container>
-                <Modal
-                    opened={open}
-                    onClose={onClose}
-                    size={500}
-                    title={
-                        <Text weight={600} color={`${colors.primaryColor}`} size={28}>Mpesa number to pay</Text>
-                    }
-                >
-                    <Divider mb="xl" />
-                    <Container>
-                        <Center mb="xl">
-                            <Image
-                                src={LipaNaMpesa}
-                                height={50}
-                                width={200}
-                                alt="Lipa na mpesa"
-                            />
-                        </Center>
-
-                        <Text color="dimmed" size="sm"> Phone number format should be as shown: <br />Example 0702519598</Text>
-                        <form onSubmit={form.onSubmit(() => handleSubmit())}>
-                            <Stack>
-                                <TextInput
-                                    placeholder='Enter phonenumber'
-                                    label='Phone Number '
-                                    mb='xl'
-                                    mt='lg'
-                                    withAsterisk
-                                    radius={15}
-                                    value={form.values.phoneNumber}
-                                    onChange={(event) => form.setFieldValue('phoneNumber', event.currentTarget.value)}
-                                    error={form.errors.phoneNumber}
-                                />
-                                <Button
-                                    leftIcon={<IconCurrencyDollar />}
-                                    color="dark"
-                                    type='submit'
-                                    loading={loading}
-                                    loaderPosition="left"
-                                    radius={15}
-                                    mb="xl"
-                                >
-                                    Pay Now
-                                </Button>
-                            </Stack>
-                        </form>
-                    </Container>
-                </Modal>
                 <Box>
                     <FooterLinks data={footerData} />
                 </Box>
