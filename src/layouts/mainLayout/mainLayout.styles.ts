@@ -28,7 +28,7 @@ export const useStyles = createStyles((theme) => ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        height: "120px",
+        height: "75px",
         width: "100%",
     },
 
@@ -36,7 +36,7 @@ export const useStyles = createStyles((theme) => ({
         display:"flex",
         justifyContent: "space-between",
         alignItems: "center",
-        height: 105,
+        height: 95,
         maxWidth: "1600px",
        
         [theme.fn.largerThan("md")]: {

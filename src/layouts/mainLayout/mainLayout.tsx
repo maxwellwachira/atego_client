@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
   Anchor,
   AppShell,
@@ -34,8 +34,11 @@ type Props = {
 const MainLayout = ({ children }: Props) => {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
   const router = useRouter();
   const { auth, userMe } = useAuthContext();
+
+  const { width } = useViewportSize();
 
   const getInitials = (nameString: string) => {
     const fullName = nameString.split(' ');
@@ -43,12 +46,28 @@ const MainLayout = ({ children }: Props) => {
     return initials.toUpperCase();
   }
 
+  const detectScrollY = () => {
+    if (window.scrollY > 6) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", detectScrollY);
+    return () => {
+      window.removeEventListener("scroll", detectScrollY);
+    }
+  }, [])
+
+
   return (
     <AppShell
       navbarOffsetBreakpoint="md"
       fixed
       header={
-        <Header height={105} className={`${classes.headerBackground}`} withBorder={true}>
+        <Header height={width > 768 ? 95 : 75} className={`${classes.headerBackground}`} withBorder={false} style={{boxShadow: isScrolled? 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px': 'none'}}>
           <MediaQuery largerThan="md" styles={{ display: "none" }}>
             <div className={classes.burger}>
               <Anchor href="/" ml="xl">
@@ -74,14 +93,14 @@ const MainLayout = ({ children }: Props) => {
               <Anchor href="/">
                 <Image
                   src={logo}
-                  width={150}
-                  height={100}
+                  width={140}
+                  height={90}
                   alt='logo'
                 />
 
               </Anchor>
             </div>
-            <div className={classes.links} style={{margin : auth ? "0 200px" : "0 45px"}}>
+            <div className={classes.links} style={{ margin: auth ? "0 200px" : "0 45px" }}>
               <Anchor className={`${classes.navitem} ${router.pathname === "/" ? classes.active : ""}`} href="/">Home</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/courses" ? classes.active : ""}`} href="/courses">Courses</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/about" ? classes.active : ""}`} href="/about">About</Anchor>
@@ -165,7 +184,7 @@ const MainLayout = ({ children }: Props) => {
             <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : ""}`} href="#">Community</Anchor> */}
             {auth ?
               <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/login" ? classes.activeSignIn : ""}`} href={userMe.role === "admin" ? "/admin" : userMe.role === "tutor" ? "/tutors/uploads" : "/students"}>Dashboard</Anchor> :
-              <div style={{marginTop: 20, marginLeft: 5}}>
+              <div style={{ marginTop: 20, marginLeft: 5 }}>
                 <Anchor className={`${classes.navitem} ${classes.signin} ${router.pathname === "/auth/login" ? classes.activeSignIn : ""}`} href="/auth/login" >Login</Anchor>
                 <Anchor className={`${classes.navitem} ${classes.signup} ${router.pathname === "/auth/register" ? classes.activeSignUp : ""}`} href="/auth/register">Register</Anchor>
               </div>
