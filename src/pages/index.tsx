@@ -79,7 +79,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Atego</title>
-        <meta name="description" content="Join the future of technology with our online IoT and Hardware Academy. Learn from experts and gain hands-on experience with the latest hardware and software technologies. Enroll now and take your career to the next level! Best IoT school in 2023" />
+        <meta name="description" content="Discover the best hardware and IoT training programs at Atego School. Our hands-on courses are designed for beginners and experienced professionals alike. Enroll now and start your journey in the exciting field of IoT." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>

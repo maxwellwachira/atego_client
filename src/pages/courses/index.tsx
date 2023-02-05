@@ -114,7 +114,7 @@ const Courses: NextPage = () => {
     <>
       <Head>
         <title>Atego | Courses</title>
-        <meta name="description" content="Courses Page" />
+        <meta name="description" content="Explore a wide range of hardware and IoT courses at Atego School. From beginners to advanced students, our curriculum covers the latest technologies and techniques in the field. Find the perfect course for you today." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>

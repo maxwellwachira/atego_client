@@ -59,7 +59,7 @@ const ForgotPass: NextPage = () => {
     <>
       <Head>
         <title>Atego | Forgot Password</title>
-        <meta name="description" content="Forgot password Atego" />
+        <meta name="description" content="Forgot your Atego School password? No problem. Our secure process will help you reset your password and get back to your hardware and IoT studies in no time" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>

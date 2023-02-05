@@ -281,7 +281,7 @@ const SingleCourse: NextPage = (props: any) => {
         <>
             <Head>
                 <title>Atego | {props?.courseContent[0].courseTitle}</title>
-                <meta name="description" content="Course Page" />
+                <meta name="description" content="Learn the basics of Hardware & IoT with Atego's comprehensive IoT course. Taught by industry experts, this hands-on program will equip you with the skills and knowledge you need to succeed in the world of IoT." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <MainLayout>

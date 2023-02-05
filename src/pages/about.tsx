@@ -15,7 +15,7 @@ const About: NextPage = () => {
         <>
             <Head>
                 <title>Atego | About</title>
-                <meta name="description" content="Join the future of technology with our online IoT and Hardware Academy. Learn from experts and gain hands-on experience with the latest hardware and software technologies. Enroll now and take your career to the next level! Best IoT school in 2023" />
+                <meta name="description" content="Get to know Atego School, a leading provider of hardware and IoT education. Our expert instructors and innovative curriculum are dedicated to helping you achieve your goals in the world of technology." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <MainLayout>

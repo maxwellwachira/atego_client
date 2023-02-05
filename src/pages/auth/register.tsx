@@ -50,7 +50,7 @@ const Register: NextPage = () => {
         <>
         <Head>
             <title>Atego | Register</title>
-            <meta name="description" content="Atego Register Page" />
+            <meta name="description" content="Sign up for Atego School's cutting-edge hardware and IoT courses. Our programs, taught by industry experts, will give you the skills and knowledge you need to succeed in the world of technology" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <MainLayout>

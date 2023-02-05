@@ -51,7 +51,7 @@ const Login: NextPage = () => {
         <>
         <Head>
             <title>Atego | Login</title>
-            <meta name="description" content="Atego login page" />
+            <meta name="description" content="Access your Atego School account and continue your journey in the exciting field of hardware and IoT. Stay connected with your classmates and instructors and keep track of your course progress." />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <MainLayout>
