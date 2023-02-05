@@ -34,7 +34,8 @@ type Props = {
 const MainLayout = ({ children }: Props) => {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHome, setIsHome] = useState(false);
   const router = useRouter();
   const { auth, userMe } = useAuthContext();
 
@@ -61,13 +62,17 @@ const MainLayout = ({ children }: Props) => {
     }
   }, [])
 
+  useEffect(() => {
+    router.pathname === "/" ? setIsHome(true) : setIsHome(false)
+  }, [router.pathname])
+
 
   return (
     <AppShell
       navbarOffsetBreakpoint="md"
       fixed
       header={
-        <Header height={width > 768 ? 95 : 75} className={`${classes.headerBackground}`} withBorder={false} style={{boxShadow: isScrolled? 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px': 'none'}}>
+        <Header height={width > 768 ? 95 : 75} className={`${classes.headerBackground}`} withBorder={isHome ? true : false} style={{boxShadow: isScrolled? 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px': 'none'}}>
           <MediaQuery largerThan="md" styles={{ display: "none" }}>
             <div className={classes.burger}>
               <Anchor href="/" ml="xl">
