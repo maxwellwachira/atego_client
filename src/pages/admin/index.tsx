@@ -188,7 +188,7 @@ const Dashboard: NextPage = () => {
             <AdminLayout>
                <Container>
                 <Center>
-                    <Text my="xl" size={25}  weight={600} color="dark">{getGreetings()} <span style={{color: colors.primaryColor}}>{userMe.firstName} {userMe.lastName}</span>, Welcome to Admin's Dashboard</Text>
+                    <Text my="xl" size={20} weight={600} color="dark">{getGreetings()} <span style={{color: colors.primaryColor}}>{userMe.firstName} {userMe.lastName}</span>, Welcome to Admin's Dashboard</Text>
                 </Center>
                 <Grid gutter="xl" mb="xl">
                     <Grid.Col md={6}>
