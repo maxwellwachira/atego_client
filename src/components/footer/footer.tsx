@@ -56,7 +56,7 @@ function FooterLinks({ data }: FooterLinksProps) {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2022 Atego. All rights reserved.
+          © 2023 Atego. All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
