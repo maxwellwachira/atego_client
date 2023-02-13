@@ -109,6 +109,7 @@ const MainLayout = ({ children }: Props) => {
               <Anchor className={`${classes.navitem} ${router.pathname === "/" ? classes.active : ""}`} href="/">Home</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/courses" ? classes.active : ""}`} href="/courses">Courses</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/about" ? classes.active : ""}`} href="/about">About</Anchor>
+              <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : ""}`} href="/faq">FAQ</Anchor>
               <Anchor className={`${classes.navitem} ${router.pathname === "/find-a-home" ? classes.active : ""}`} href="https://forms.gle/MZ2BhLS2WMySZYFP7" target="_blank">Financial Aid</Anchor>
               {/* <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : ""}`} href="#">Community</Anchor> */}
               <div>
@@ -183,6 +184,8 @@ const MainLayout = ({ children }: Props) => {
             <Anchor className={`${classes.navitem} ${router.pathname === "/courses" ? classes.active : ""}`} href="/courses">Courses</Anchor>
             <Space h="xs" />
             <Anchor className={`${classes.navitem} ${router.pathname === "/about" ? classes.active : ""}`} href="/about">About</Anchor>
+            <Space h="xs" />
+            <Anchor className={`${classes.navitem} ${router.pathname === "/faq" ? classes.active : ""}`} href="/faq">FAQ</Anchor>
             <Space h="xs" />
             <Anchor className={`${classes.navitem} ${router.pathname === "/find-a-home" ? classes.active : ""}`} href="https://forms.gle/MZ2BhLS2WMySZYFP7" target="_blank">Financial Aid</Anchor>
             {/* <Space h="xs" />
