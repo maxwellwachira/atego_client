@@ -10,6 +10,7 @@ import {
   IconVideo,
   IconUpload,
   IconSitemap,
+  IconQuestionCircle,
 } from '@tabler/icons';
 import { useRouter } from 'next/router';
 
@@ -88,6 +89,12 @@ export function AdminLayout({ children }: Props) {
       icon: IconUpload,
       link: '/admin/uploads',
       active: router.pathname === '/admin/uploads' ? true : false,
+    },
+    {
+      label: 'FAQ',
+      icon: IconQuestionCircle,
+      link: '/admin/faq',
+      active: router.pathname === '/admin/faq' ? true : false,
     },
     {
       label: 'Messaging',
