@@ -62,7 +62,7 @@ const MoreButton = ({id, type}: ID) => {
                 <Divider />
                 <Container>
                     <Group mt="lg" position="apart">
-                        <Text><IconId size={16} color={`${colors.primaryColor}`}/> Category Id: </Text>
+                        <Text><IconId size={16} color={`${colors.primaryColor}`}/>Student Id: </Text>
                         <Badge color="dark" size="lg">{userData?.id}</Badge>
                     </Group>
                     <Group mt="lg" position="apart">
