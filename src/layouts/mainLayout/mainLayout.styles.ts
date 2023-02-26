@@ -40,9 +40,8 @@ export const useStyles = createStyles((theme) => ({
         maxWidth: "1600px",
        
         [theme.fn.largerThan("md")]: {
-           
                 width: "100%",
-                maxWidth: "1440px",
+                maxWidth: "1080px",
             
         },
     },
@@ -128,9 +127,8 @@ export const useStyles = createStyles((theme) => ({
 
     userIcon: {
         position: 'absolute',
-        top: 35,
+        top: 27.5,
         marginLeft: 30,
-
     },
 
     userIconContent: {
