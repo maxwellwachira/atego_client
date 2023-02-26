@@ -86,7 +86,7 @@ const Uploads: NextPage = () => {
         setOpen(false);
     }
 
-    const getAllCategories = async() => {
+    const getAllCategories = async () => {
         try {
             const { data } = await axios.get(`${urls.baseUrl}/category?page=${1}&limit=${1000}`);
             setCategoryData(data);
@@ -96,7 +96,7 @@ const Uploads: NextPage = () => {
         }
     }
 
-    const getAllUploads = async() => {
+    const getAllUploads = async () => {
         try {
             const { data } = await axios.get(`${urls.baseUrl}/upload`);
             setUploadData(data);
@@ -115,12 +115,12 @@ const Uploads: NextPage = () => {
                 fileName: el.fileName,
                 fileExtension: el.fileExtension,
                 type: el.fileType,
-                size: Number((el.fileSize / (10**6)).toFixed(2)),
+                size: Number((el.fileSize / (10 ** 6)).toFixed(2)),
                 createdAt: (new Date(el.createdAt)).toLocaleString()
             }
             data.push(upload);
         });
-        
+
         return data;
     }
 
@@ -137,19 +137,21 @@ const Uploads: NextPage = () => {
         return data;
     }
 
-    const handleSubmit = async() => {
-        if(JSON.stringify(form.errors) === "{}"){
+    const handleSubmit = async () => {
+        if (JSON.stringify(form.errors) === "{}") {
             setLoading(true);
-            const uploadData  = { ...form.values, file};
+            const uploadData = { ...form.values, file };
             try {
-                const { data } = await axios.post(`${urls.baseUrl}/upload`, uploadData, {headers: {
-                    'Content-Type': 'multipart/form-data'
-                  }});
+                const { data } = await axios.post(`${urls.baseUrl}/upload`, uploadData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
                 //console.log(data);
                 toggleRefreshData();
                 setLoading(false);
                 setResponse(data.message);
-                setTimeout(() => {setResponse('')}, 5000);
+                setTimeout(() => { setResponse('') }, 5000);
             } catch (error) {
                 setLoading(false);
                 console.log(error);
@@ -158,123 +160,125 @@ const Uploads: NextPage = () => {
     }
 
     useEffect(() => {
-        if(!auth) router.push('/auth/logout');
-        if(userMe.role){
-            if(userMe.role !== "tutor") router.push('/403');
-            getAllCategories();
-            getAllUploads();
-            form.setFieldValue('UserId', userMe.id);
-        }
+        setTimeout(() => {
+            if (!auth) router.push('/auth/logout');
+            if (userMe.role) {
+                if (userMe.role !== "tutor") router.push('/403');
+                getAllCategories();
+                getAllUploads();
+                form.setFieldValue('UserId', userMe.id);
+            }
+        }, 1000);
     }, [activePage, refreshData, userMe]);
 
     if (!auth || userMe.role !== "tutor") return <></>
 
     return (
         <>
-         <Head>
-            <title>Atego | Tutor Uploads</title>
-            <meta name="description" content="Atego school tutors uploads" />
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <TutorLayout>
-            <Container>
-                <Paper withBorder  mt='xl' radius={40}>
-                    <Grid>
-                        <Grid.Col md={6}>
-                            <Center>
-                                <Image 
-                                    src='/uploads.svg'
-                                    height={350}
-                                    width={400}
-                                    alt="uploads icon"
-                                />
-                            </Center>
-                        </Grid.Col>
-                        <Grid.Col md={6}>
-                            <Stack p='xl'>
-                            <Text size={28} color={`${colors.primaryColor}`} weight={600} mt="lg" >Uploads</Text>
-                                <Group position='apart'>
-                                    <Text>Total Uploads:</Text>
-                                    <Badge color="dark">{uploadData?.totalUploads} Uploads</Badge>
-                                </Group>
-                                <Button
-                                    mt="xl"
-                                    radius="xl"
-                                    size='md'
-                                    variant='outline'
-                                    color='green'
-                                    leftIcon={<IconUpload />}
-                                    onClick={() => setOpen(true)}
-                                >
-                                    Click to Upload File
-                                </Button>
-                            </Stack>
-                        </Grid.Col>
-                    </Grid>
-                </Paper>
-                <UploadsTable data={tableData()} type="tutor"/>
-                <Center mt="xl"> 
-                    <Pagination total={uploadData ? uploadData.totalPages : 2} color='gray' page={activePage} onChange={setPage}/>
-                </Center>
-            </Container>
-        </TutorLayout>
-        <Modal
-            opened={open}
-            onClose={onClose}
-            title={<Text size={25} color={`${colors.primaryColor}`} weight={600} ><IconUpload /> Upload File</Text>}
-            size="600px"
-        >
-            <Divider />
-            <Container>
-                {response === 'success' ? (   
-                    <Alert icon={<IconCheck size={16} />} title="Success" color="green">
-                        File added Successfully
-                    </Alert>           
-                ): response ? (
-                    <Alert icon={<IconAlertCircle size={16} />} title="Error!" color="red">
-                        Reason: {response} <br />
-                    </Alert>
-                ): ''}
-                <form onSubmit={form.onSubmit(() => handleSubmit())}>
-                    <Stack>
-                        <FileInput 
-                            withAsterisk
-                            label="Upload File" 
-                            placeholder="Click to select file" 
-                            icon={<IconUpload size={14} />}
-                            mt="lg"
-                            radius={15}
-                            value={file}
-                            onChange={setFile}  
-                        />
-                        <Select 
-                            label="Category"
-                            placeholder='Select Course Category'
-                            withAsterisk
-                            searchable
-                            radius={15}
-                            nothingFound="No options"
-                            {...form.getInputProps('CategoryId', { type: 'input' })}
-                            data={categorySelectData()}
-                            mt="md"
-                            error={form.errors.CategoryId}
-                        />
-                        <Button 
-                            rightIcon={<IconCheck />}
-                            color="green"
-                            my="xl"
-                            type='submit'
-                            loading={loading}
-                            loaderPosition="left"
-                            px="xl"
-                            radius={15}
-                        >
-                            Upload 
-                        </Button>
-                    </Stack>
-                </form>
-            </Container>
-        </Modal>
+            <Head>
+                <title>Atego | Tutor Uploads</title>
+                <meta name="description" content="Atego school tutors uploads" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <TutorLayout>
+                <Container>
+                    <Paper withBorder mt='xl' radius={40}>
+                        <Grid>
+                            <Grid.Col md={6}>
+                                <Center>
+                                    <Image
+                                        src='/uploads.svg'
+                                        height={350}
+                                        width={400}
+                                        alt="uploads icon"
+                                    />
+                                </Center>
+                            </Grid.Col>
+                            <Grid.Col md={6}>
+                                <Stack p='xl'>
+                                    <Text size={28} color={`${colors.primaryColor}`} weight={600} mt="lg" >Uploads</Text>
+                                    <Group position='apart'>
+                                        <Text>Total Uploads:</Text>
+                                        <Badge color="dark">{uploadData?.totalUploads} Uploads</Badge>
+                                    </Group>
+                                    <Button
+                                        mt="xl"
+                                        radius="xl"
+                                        size='md'
+                                        variant='outline'
+                                        color='green'
+                                        leftIcon={<IconUpload />}
+                                        onClick={() => setOpen(true)}
+                                    >
+                                        Click to Upload File
+                                    </Button>
+                                </Stack>
+                            </Grid.Col>
+                        </Grid>
+                    </Paper>
+                    <UploadsTable data={tableData()} type="tutor" />
+                    <Center mt="xl">
+                        <Pagination total={uploadData ? uploadData.totalPages : 2} color='gray' page={activePage} onChange={setPage} />
+                    </Center>
+                </Container>
+            </TutorLayout>
+            <Modal
+                opened={open}
+                onClose={onClose}
+                title={<Text size={25} color={`${colors.primaryColor}`} weight={600} ><IconUpload /> Upload File</Text>}
+                size="600px"
+            >
+                <Divider />
+                <Container>
+                    {response === 'success' ? (
+                        <Alert icon={<IconCheck size={16} />} title="Success" color="green">
+                            File added Successfully
+                        </Alert>
+                    ) : response ? (
+                        <Alert icon={<IconAlertCircle size={16} />} title="Error!" color="red">
+                            Reason: {response} <br />
+                        </Alert>
+                    ) : ''}
+                    <form onSubmit={form.onSubmit(() => handleSubmit())}>
+                        <Stack>
+                            <FileInput
+                                withAsterisk
+                                label="Upload File"
+                                placeholder="Click to select file"
+                                icon={<IconUpload size={14} />}
+                                mt="lg"
+                                radius={15}
+                                value={file}
+                                onChange={setFile}
+                            />
+                            <Select
+                                label="Category"
+                                placeholder='Select Course Category'
+                                withAsterisk
+                                searchable
+                                radius={15}
+                                nothingFound="No options"
+                                {...form.getInputProps('CategoryId', { type: 'input' })}
+                                data={categorySelectData()}
+                                mt="md"
+                                error={form.errors.CategoryId}
+                            />
+                            <Button
+                                rightIcon={<IconCheck />}
+                                color="green"
+                                my="xl"
+                                type='submit'
+                                loading={loading}
+                                loaderPosition="left"
+                                px="xl"
+                                radius={15}
+                            >
+                                Upload
+                            </Button>
+                        </Stack>
+                    </form>
+                </Container>
+            </Modal>
         </>
     )
 

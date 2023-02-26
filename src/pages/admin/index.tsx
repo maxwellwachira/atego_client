@@ -167,14 +167,16 @@ const Dashboard: NextPage = () => {
     }
 
     useEffect(() =>{
-        if(!auth) router.push('/auth/logout');
-        if(userMe.role){
-            if(userMe.role !== "admin") router.push('/403');
-            getAllCourses();
-            getAllCategories();
-            getAllStudents();
-            getAllTutors();
-        }
+        setTimeout(() => {
+            if(!auth) router.push('/auth/logout');
+            if(userMe.role){
+                if(userMe.role !== "admin") router.push('/403');
+                getAllCourses();
+                getAllCategories();
+                getAllStudents();
+                getAllTutors();
+            }
+        }, 1000);
     }, [userMe]);
 
     if (!auth || userMe.role !== "admin") return <></>

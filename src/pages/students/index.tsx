@@ -55,8 +55,10 @@ const StudentDashboard: NextPage = () => {
     }
 
     useEffect(() => {
-        if (!auth) router.push('/auth/logout');
-        getEnrolments();
+        setTimeout(()=> {
+            if (!auth) router.push('/auth/logout');
+            getEnrolments();
+        }, 1000);
     }, [])
 
     if (!auth) return <></>
