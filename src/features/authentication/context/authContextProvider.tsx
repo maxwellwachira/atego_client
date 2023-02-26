@@ -58,7 +58,7 @@ export const AuthContextProvider = ({children}: Props) => {
         deleteCookie('accessToken', {path:'/'});
         deleteCookie('refreshToken', {path:'/'});
         setAuth(false);
-        router.push('/auth/login').then(() => router.reload());
+        router.push('/auth/login');
     }
 
     const readUserMe = async () => {
