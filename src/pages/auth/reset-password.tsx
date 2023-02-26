@@ -15,6 +15,7 @@ import {
 } from '@mantine/core';
 import Image from 'next/image';
 import { IconCheck, IconX } from '@tabler/icons';
+import { useViewportSize } from '@mantine/hooks';
 
 import MainLayout from '../../layouts/mainLayout/mainLayout';
 import { colors } from '../../constants/colors';
@@ -53,6 +54,7 @@ submitButton: {
 const ResetPage: NextPage = () => {
   const { classes } = useStyles();
   const { response, form, handleSubmit, clearResponse  } = usePasswordReset();
+  const { width } = useViewportSize();
   
   return (
     <>
@@ -63,7 +65,7 @@ const ResetPage: NextPage = () => {
       </Head>
       <MainLayout>
       <Container mb={50}>
-          <Text align="center" size={28} weight={600} color={`${colors.primaryColor}`}>Reset Password</Text>
+          <Text align="center" size={18} weight={600} color={`${colors.primaryColor}`} style={{display: width > 768 ? 'none' : ''}}>Reset Password</Text>
           <Paper withBorder radius={40} mt={30}>
             <Grid>
                 <Grid.Col md={6}>

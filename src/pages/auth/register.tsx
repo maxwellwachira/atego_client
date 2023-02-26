@@ -55,7 +55,7 @@ const Register: NextPage = () => {
         </Head>
         <MainLayout>
             <Container mb={50}>
-                <Text align="center" size={28} weight={600} color={`${colors.primaryColor}`}>Sign Up</Text>
+                <Text align="center" size={18} weight={600} color={`${colors.primaryColor}`} style={{display: width > 768 ? 'none' : ''}}>Sign Up</Text>
                 <Paper withBorder radius={40} mt={30}>
                     <Grid>
                         <Grid.Col md={6}>

@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import {  Anchor, Button, Container, createStyles, Divider, Grid, Group, Notification, Paper, PasswordInput, Stack, Text, TextInput, } from '@mantine/core';
-import { useRouter } from 'next/router';
+import { useViewportSize } from '@mantine/hooks';
 import { IconX } from '@tabler/icons';
 
 import MainLayout from '../../layouts/mainLayout/mainLayout';
@@ -43,9 +42,8 @@ const useStyles = createStyles((theme) => ({
 
 const Login: NextPage = () => {
     const { classes } = useStyles();
-    const router = useRouter()
-    const { form, handleSubmit, clearResponse, response, userMeData, loading } = useLoginUser();
-
+    const { form, handleSubmit, clearResponse, response, loading } = useLoginUser();
+    const { width } = useViewportSize();
     
     return (
         <>
@@ -56,7 +54,7 @@ const Login: NextPage = () => {
         </Head>
         <MainLayout>
             <Container mb={50}>
-                <Text align="center" size={28} weight={600} color={`${colors.primaryColor}`}>Login</Text>
+                <Text align="center" size={18} weight={600} color={`${colors.primaryColor}`} style={{display: width > 768 ? 'none' : ''}}>Login</Text>
                 <Paper withBorder radius={40} mt={30}>
                     <Grid>
                         <Grid.Col md={6}>

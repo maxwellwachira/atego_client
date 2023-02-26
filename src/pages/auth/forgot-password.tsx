@@ -15,6 +15,7 @@ import {
   Notification
 } from '@mantine/core';
 import Image from 'next/image';
+import { useViewportSize } from '@mantine/hooks';
 import { IconCheck, IconX } from '@tabler/icons';
 
 import MainLayout from '../../layouts/mainLayout/mainLayout';
@@ -54,6 +55,7 @@ const useStyles = createStyles((theme) => ({
 const ForgotPass: NextPage = () => {
   const { classes } = useStyles();
   const { response, form, handleSubmit, clearResponse } = useForgetPassword();
+  const { width } = useViewportSize();
 
   return (
     <>
@@ -64,7 +66,7 @@ const ForgotPass: NextPage = () => {
       </Head>
       <MainLayout>
         <Container mb={50}>
-          <Text align="center" size={28} weight={600} color={`${colors.primaryColor}`}>Forgot Password?</Text>
+          <Text align="center" size={18} weight={600} color={`${colors.primaryColor}`} style={{display: width > 768 ? 'none' : ''}}>Forgot Password?</Text>
           <Paper withBorder radius={40} mt={30}>
             <Grid>
               <Grid.Col md={6}>
