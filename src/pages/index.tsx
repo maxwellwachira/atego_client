@@ -85,9 +85,9 @@ const Home: NextPage = () => {
       <MainLayout>
         <Container mt="xl">
           <MediaQuery largerThan="md" styles={{ display: "none" }}>
-            <Grid gutter={30}>
+            <Grid>
               <Grid.Col md={6}>
-                <Text className={`${classes.heading} ${classes.primaryText}`} fz={28}>BUILDING HARDWARE & IOT PROFESSIONALS</Text>
+                <Text className={`${classes.heading} ${classes.primaryText}`} fz={width > 768 ? 28 : 22} mt={-20} align='center'>BUILDING HARDWARE & IOT PROFESSIONALS</Text>
                 <Center>
                   <Image
                     src={hero}
