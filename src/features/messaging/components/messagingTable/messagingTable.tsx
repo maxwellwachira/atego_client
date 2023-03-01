@@ -29,7 +29,7 @@ const MessagingTable = ({data}: MessageData) => {
     ))
     return (
         <Table  striped highlightOnHover captionSide="bottom" mt={60}>
-            <caption>Luddoc Sent SMS</caption>
+            <caption>Atego Sent SMS</caption>
             <thead>
                 <tr>
                     <th>#</th>

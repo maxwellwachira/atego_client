@@ -32,7 +32,7 @@ const CourseTable = ({data}: CourseData) => {
     ));
     return (
         <Table  striped highlightOnHover captionSide="bottom" mt={60}>
-            <caption>Luddoc Courses</caption>
+            <caption>Atego Courses</caption>
             <thead>
                 <tr>
                     <th>#</th>
