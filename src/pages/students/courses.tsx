@@ -11,6 +11,7 @@ import { colors } from '../../constants/colors';
 import axios from 'axios';
 import { urls } from '../../constants/urls';
 import { useAuthContext } from '../../features/authentication';
+import { IconArrowRight } from '@tabler/icons';
 
 
 interface Enrolments {
@@ -181,9 +182,36 @@ const Certificates: NextPage = () => {
                     >
                         My Courses
                     </Text>
+                    {
+                       enrolments && enrolments.length > 0 ? 
                     <Grid>
                         {item}
-                    </Grid>
+                    </Grid> :
+                    <Card withBorder style={{maxWidth:300}} radius={20}>
+                        <Card.Section>
+                            <Image
+                                src="/nodata.svg"
+                                height={300}
+                                width={300}
+                                alt="No course found" 
+                            />
+                        </Card.Section>
+                        <Stack justify='center' align='center'>
+
+                        <Text >Oops! No course Found</Text>
+                        <Button
+                            rightIcon={<IconArrowRight />}
+                            radius={15}
+                            color='dark'
+                            variant='outline'
+                            component='a'
+                            href='/courses'
+                        >
+                            Go to Courses
+                        </Button>
+                        </Stack>
+                    </Card>
+                    }
                 </Container>
             </StudentLayout>
         </>
