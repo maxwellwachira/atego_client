@@ -34,7 +34,7 @@ const StudentsTable = ({data, type}: StudentData) => {
     ))
     return (
         <Table  striped highlightOnHover captionSide="bottom" mt={60}>
-            <caption>Luddoc {type}s</caption>
+            <caption>Atego {type}s</caption>
             <thead>
                 <tr>
                     <th>#</th>

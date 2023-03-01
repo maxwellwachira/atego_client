@@ -38,7 +38,7 @@ const UploadsTable = ({data, type}: CategoryData) => {
     ))
     return (
         <Table  striped highlightOnHover captionSide="bottom" mt={60}>
-            <caption>Luddoc Uploads</caption>
+            <caption>Atego Uploads</caption>
             <thead>
                 <tr>
                     <th>#</th>
